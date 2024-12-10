@@ -1,11 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar";
 import CoffeeCard from "./CoffeeCard";
+import { useState } from "react";
 
 const Root = () => {
 
     const allCoffeeData = useLoaderData();
-    console.log(allCoffeeData)
+    // console.log(allCoffeeData);
+    const [coffees, setCoffees] = useState(allCoffeeData);
+
     return (
         <div>
             <nav>
@@ -22,7 +25,12 @@ const Root = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                         {allCoffeeData.map((coffee, idx) => (
-                            <CoffeeCard key={idx} coffee={coffee}></CoffeeCard>
+                            <CoffeeCard 
+                            key={idx} 
+                            coffee={coffee}
+                            coffees={coffees}
+                            setCoffees={setCoffees}
+                            ></CoffeeCard>
                         ))}
                     </div>
                 </div>
