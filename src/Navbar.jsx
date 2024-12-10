@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white">
+    <nav className="bg-[#D2B48C]">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
           <NavLink to="/" className="hover:text-gray-300">
-            Coffee App
+            Espresso Emporium
           </NavLink>
         </div>
 

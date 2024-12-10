@@ -6,8 +6,8 @@ const UpdateCoffee = () => {
             <nav>
                 <Navbar></Navbar>
             </nav>
-            <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+            <div className="flex justify-center items-center min-h-screen bg-[#F4F3F0]">
+      <div className="bg-[#F4F3F0] p-8 rounded-lg shadow-lg w-full max-w-4xl">
         {/* Back to home link */}
         <div className="mb-4">
           <a href="/" className="text-blue-500 hover:underline">
@@ -19,14 +19,6 @@ const UpdateCoffee = () => {
         <h1 className="text-2xl font-bold text-center text-gray-800 mb-2">
           Update Existing Coffee Details
         </h1>
-
-        {/* Subtitle */}
-        <p className="text-center text-gray-600 mb-6">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using Content here.
-        </p>
 
         {/* Form */}
         <form>
@@ -125,7 +117,7 @@ const UpdateCoffee = () => {
 
           {/* Submit button */}
           <div className="mt-6 text-center">
-            <button type="submit" className="btn btn-success text-white w-full">
+            <button type="submit" className="btn bg-[#D2B48C] w-full">
               Update Coffee Details
             </button>
           </div>
