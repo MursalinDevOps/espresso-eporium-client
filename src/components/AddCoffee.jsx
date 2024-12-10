@@ -87,7 +87,7 @@ const AddCoffee = () => {
                 <input
                   type="text"
                   name="quantity"
-                  placeholder="Enter coffee chef"
+                  placeholder="Enter coffee quantity"
                   className="input input-bordered w-full"
                 />
               </div>

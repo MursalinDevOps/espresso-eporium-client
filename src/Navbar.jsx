@@ -34,7 +34,7 @@ const Navbar = () => {
           >
             Add Coffee
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/updateCoffee"
             className={({ isActive }) =>
               `hover:text-gray-300 ${
@@ -43,7 +43,7 @@ const Navbar = () => {
             }
           >
             Update Coffee
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </nav>
