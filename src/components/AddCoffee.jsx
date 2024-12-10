@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import Navbar from "../Navbar";
 
 const AddCoffee = () => {
@@ -16,7 +17,11 @@ const AddCoffee = () => {
     // create an object
     const addCoffeeFormData = {name, quantity, supplier, taste, category, details, photo};
     console.log(addCoffeeFormData);
-    alert('Coffee Added Successfully!');
+    // Swal.fire({
+    //   title: "Good job!",
+    //   text: "Coffee Added Successfully!",
+    //   icon: "success"
+    // });
 
     // send data to the server side
     fetch('http://localhost:5000/coffee', {
@@ -28,7 +33,14 @@ const AddCoffee = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      console.log(data);
+      if(data.insertedId){
+        Swal.fire({
+          title:"Success!",
+          text:"Added to the Successfully :)",
+          icon:"success"
+        })
+      }
     })
   }
 
