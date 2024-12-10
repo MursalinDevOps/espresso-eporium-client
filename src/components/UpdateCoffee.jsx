@@ -1,6 +1,47 @@
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar";
+import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
+  const loadedData = useLoaderData();
+  console.log(loadedData)
+  // console.log(loadedData);
+  const handleUpdateCoffee = (e) => {
+    e.preventDefault();
+    console.log("form submitted!");
+    
+    const form = e.target;
+    const name = form.name.value;
+    const quantity = form.quantity.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+    // create an object
+    const updatedCoffee = {name, quantity, supplier, taste, category, details, photo};
+    // console.log(updatedCoffee);
+
+     // send data to the server side
+     fetch(`http://localhost:5000/coffee/${loadedData._id}`, {
+      method:'PUT',
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(updatedCoffee)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount){
+        Swal.fire({
+          title:"Success!",
+          text:"Coffee Updated Successfully :)",
+          icon:"success"
+        })
+      }
+    })
+  }
     return (
         <div>
             <nav>
@@ -21,7 +62,7 @@ const UpdateCoffee = () => {
         </h1>
 
         {/* Form */}
-        <form>
+        <form onSubmit={handleUpdateCoffee}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Name */}
             <div>
@@ -30,22 +71,24 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
-                placeholder="Americano Coffee"
+                name="name"
+                placeholder="Enter name"
                 className="input input-bordered w-full"
-                defaultValue="Americano Coffee"
+                defaultValue={loadedData.name}
               />
             </div>
 
-            {/* Chef */}
+            {/* Quantity */}
             <div>
               <label className="label">
-                <span className="label-text">Chef</span>
+                <span className="label-text">Quantity</span>
               </label>
               <input
                 type="text"
-                placeholder="Mr. Matin Paul"
+                name="quantity"
+                placeholder="Enter quantity"
                 className="input input-bordered w-full"
-                defaultValue="Mr. Matin Paul"
+                defaultValue={loadedData.quantity}
               />
             </div>
 
@@ -56,9 +99,10 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
-                placeholder="Cappu Authoriser"
+                name="supplier"
+                placeholder="Enter supplier"
                 className="input input-bordered w-full"
-                defaultValue="Cappu Authoriser"
+                defaultValue={loadedData.supplier}
               />
             </div>
 
@@ -69,9 +113,10 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
-                placeholder="Sweet and hot"
+                name="taste"
+                placeholder="Taste"
                 className="input input-bordered w-full"
-                defaultValue="Sweet and hot"
+                defaultValue={loadedData.taste}
               />
             </div>
 
@@ -82,9 +127,10 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
-                placeholder="Americano"
+                name="category"
+                placeholder="Category"
                 className="input input-bordered w-full"
-                defaultValue="Americano"
+                defaultValue={loadedData.category}
               />
             </div>
 
@@ -95,9 +141,10 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
-                placeholder="Espresso with hot water"
+                name="details"
+                placeholder="Enter details"
                 className="input input-bordered w-full"
-                defaultValue="Espresso with hot water"
+                defaultValue={loadedData.details}
               />
             </div>
 
@@ -108,9 +155,10 @@ const UpdateCoffee = () => {
               </label>
               <input
                 type="text"
+                name="photo"
                 placeholder="https://ibb.co/Pxq4Mpy"
                 className="input input-bordered w-full"
-                defaultValue="https://ibb.co/Pxq4Mpy"
+                defaultValue={loadedData.photo}
               />
             </div>
           </div>

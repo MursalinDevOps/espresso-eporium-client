@@ -47,11 +47,11 @@ const CoffeeCard = ({ coffee }) => {
         <p className="text-sm">Supplier: {supplier}</p>
         <p className="text-sm">Details: {details}</p>
         <div className="card-actions">
-          <button className="btn btn-sm btn-outline btn-primary">👁️</button>
-          <Link to={`/updateCoffee/${_id}`} className="btn btn-sm btn-outline btn-warning">✏️</Link>
+          <button className="btn btn-sm btn-primary">View Details</button>
+          <Link to={`/updateCoffee/${_id}`} className="btn btn-sm btn-secondary">Update Info</Link>
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-sm btn-outline btn-error">🗑️</button>
+            className="btn btn-sm btn-error text-white">Delete Coffee</button>
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ const AddCoffee = () => {
     const form = event.target;
     const name = form.name.value;
     const quantity = form.quantity.value;
-    // const quantityNum = parseInt(quantity)
     const supplier = form.supplier.value;
     const taste = form.taste.value;
     const category = form.category.value;
@@ -17,11 +16,6 @@ const AddCoffee = () => {
     // create an object
     const addCoffeeFormData = {name, quantity, supplier, taste, category, details, photo};
     console.log(addCoffeeFormData);
-    // Swal.fire({
-    //   title: "Good job!",
-    //   text: "Coffee Added Successfully!",
-    //   icon: "success"
-    // });
 
     // send data to the server side
     fetch('http://localhost:5000/coffee', {
