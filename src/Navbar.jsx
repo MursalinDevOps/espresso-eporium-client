@@ -34,16 +34,26 @@ const Navbar = () => {
           >
             Add Coffee
           </NavLink>
-          {/* <NavLink
-            to="/updateCoffee"
+          <NavLink
+            to="/signIn"
             className={({ isActive }) =>
               `hover:text-gray-300 ${
                 isActive ? "underline decoration-2" : ""
               }`
             }
           >
-            Update Coffee
-          </NavLink> */}
+            Sign In
+          </NavLink>
+          <NavLink
+            to="/signUp"
+            className={({ isActive }) =>
+              `hover:text-gray-300 ${
+                isActive ? "underline decoration-2" : ""
+              }`
+            }
+          >
+            Sign Up
+          </NavLink>
         </div>
       </div>
     </nav>
