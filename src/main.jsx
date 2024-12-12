@@ -11,35 +11,38 @@ import UpdateCoffee from './components/UpdateCoffee';
 import ErrorPage from './components/ErrorPage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Root></Root>,
-    loader:()=> fetch('http://localhost:5000/coffee')
+    loader: () => fetch('http://localhost:5000/coffee')
   },
   {
-    path:'/addCoffee',
-    element:<AddCoffee></AddCoffee>
+    path: '/addCoffee',
+    element: <AddCoffee></AddCoffee>
   },
   {
-    path:'/updateCoffee/:id',
-    element:<UpdateCoffee></UpdateCoffee>,
-    loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+    path: '/updateCoffee/:id',
+    element: <UpdateCoffee></UpdateCoffee>,
+    loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
   },
   {
-    path:'/signIn',
-    element:<SignIn></SignIn>
+    path: '/signIn',
+    element: <SignIn></SignIn>
   },
   {
-    path:'/signUp',
-    element:<SignUp></SignUp>
+    path: '/signUp',
+    element: <SignUp></SignUp>
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
