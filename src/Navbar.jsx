@@ -54,6 +54,16 @@ const Navbar = () => {
           >
             Sign Up
           </NavLink>
+          <NavLink
+            to="/users"
+            className={({ isActive }) =>
+              `hover:text-gray-300 ${
+                isActive ? "underline decoration-2" : ""
+              }`
+            }
+          >
+            Users
+          </NavLink>
         </div>
       </div>
     </nav>
